@@ -64,7 +64,7 @@
   "licenseHeading": "Attribution et licences",
   "licenseText": "Les Open Data de MétéoSuisse sont redistribuées avec attribution selon leurs conditions publiées. Le fond de carte est © contributeurs OpenStreetMap. La frontière simplifiée vient de geoBoundaries (CC BY 4.0). Le code est sous licence MIT.",
   "privacyHeading": "Confidentialité",
-  "privacyText": "Aucun outil d’analyse, publicité, cookie, compte ou base de données personnelle n’est utilisé. Au premier chargement, une requête à ipwho.is estime seulement si la personne se trouve en Suisse. L’application ne conserve pas l’adresse IP et fonctionne même si la requête échoue.",
+  "privacyText": "Aucun outil d’analyse, publicité, cookie, compte ou base de données personnelle n’est utilisé. Au premier chargement, une requête à ipwho.is estime seulement si la personne se trouve en Suisse; OpenStreetMap fournit le fond de carte. L’application ne conserve aucune réponse et fonctionne même si ces services sont indisponibles.",
   "independentNotice": "Projet universitaire indépendant",
   "backToMap": "Retour à la carte"
 }

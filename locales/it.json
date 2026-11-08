@@ -64,7 +64,7 @@
   "licenseHeading": "Attribuzione e licenze",
   "licenseText": "Gli Open Data di MeteoSvizzera sono ridistribuiti con attribuzione secondo le condizioni pubblicate. La mappa di base è © collaboratori OpenStreetMap. Il confine semplificato proviene da geoBoundaries (CC BY 4.0). Il codice è sotto licenza MIT.",
   "privacyHeading": "Privacy",
-  "privacyText": "Non vengono usati analisi, pubblicità, cookie, account o banche dati personali. Al primo caricamento, una richiesta a ipwho.is stima soltanto se la persona si trova in Svizzera. L’applicazione non conserva l’indirizzo IP e funziona anche se la richiesta fallisce.",
+  "privacyText": "Non vengono usati analisi, pubblicità, cookie, account o banche dati personali. Al primo caricamento, una richiesta a ipwho.is stima soltanto se la persona si trova in Svizzera; OpenStreetMap fornisce la mappa di base. L’applicazione non conserva le risposte e funziona anche se i servizi non sono disponibili.",
   "independentNotice": "Progetto universitario indipendente",
   "backToMap": "Torna alla mappa"
 }

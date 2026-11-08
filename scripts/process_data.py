@@ -281,10 +281,15 @@ def process_grid_variable(
         raise RuntimeError(
             f"{variable_id}: incomplete baseline years {baseline_years[0]}–{baseline_years[-1]}"
         )
-    with np.errstate(invalid="ignore"):
-        baseline = np.nanmean(
-            np.stack([arrays[year] for year in baseline_years]), axis=0
-        )
+    baseline_stack = np.stack([arrays[year] for year in baseline_years])
+    valid_count = np.sum(np.isfinite(baseline_stack), axis=0)
+    baseline_sum = np.nansum(baseline_stack, axis=0)
+    baseline = np.divide(
+        baseline_sum,
+        valid_count,
+        out=np.full_like(baseline_sum, np.nan),
+        where=valid_count > 0,
+    )
 
     overlay_root = ROOT / "data/overlays" / variable_id
     sample_payload: dict[str, Any] = {

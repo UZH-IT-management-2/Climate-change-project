@@ -64,7 +64,7 @@
   "licenseHeading": "Quellen und Lizenzen",
   "licenseText": "MeteoSchweiz Open Data wird mit Quellenangabe gemäss den veröffentlichten Bedingungen weitergegeben. Die Grundkarte ist © OpenStreetMap-Mitwirkende. Die vereinfachte Grenze stammt von geoBoundaries (CC BY 4.0). Der Anwendungscode ist MIT-lizenziert.",
   "privacyHeading": "Datenschutz",
-  "privacyText": "Es gibt keine Analysen, Werbung, Cookies, Konten oder Personendatenbank. Beim ersten Laden schätzt eine Anfrage an ipwho.is nur, ob sich die Person in der Schweiz befindet. Die Anwendung speichert keine IP-Adresse und funktioniert auch bei einer fehlgeschlagenen Anfrage.",
+  "privacyText": "Es gibt keine Analysen, Werbung, Cookies, Konten oder Personendatenbank. Beim ersten Laden schätzt eine Anfrage an ipwho.is nur, ob sich die Person in der Schweiz befindet; OpenStreetMap liefert die Grundkarten-Kacheln. Die Anwendung speichert keine Antwort und funktioniert auch bei einem Ausfall der Dienste.",
   "independentNotice": "Unabhängiges Hochschulprojekt",
   "backToMap": "Zurück zur Karte"
 }

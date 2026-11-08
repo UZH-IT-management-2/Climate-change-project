@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-11-08T19:38:27.189889+00:00",
+  "method": "Direct extraction of the published NBCN annual hot-day parameter; no interpolation or synthetic values.",
+  "stations": {
+    "lug": {
+      "station": "Lugano",
+      "source": "https://data.geo.admin.ch/ch.meteoschweiz.ogd-nbcn/lug/ogd-nbcn_lug_y.csv",
+      "parameter": "ths30xy0",
+      "baseline": 2.2,
+      "observations": {
+        "1961": 0,
+        "2003": 47,
+        "2025": 31
+      }
+    },
+    "sae": {
+      "station": "Säntis",
+      "source": "https://data.geo.admin.ch/ch.meteoschweiz.ogd-nbcn/sae/ogd-nbcn_sae_y.csv",
+      "parameter": "ths30xy0",
+      "baseline": 0.0,
+      "observations": {
+        "1961": 0,
+        "2003": 0,
+        "2025": 0
+      }
+    },
+    "sma": {
+      "station": "Zürich / Fluntern",
+      "source": "https://data.geo.admin.ch/ch.meteoschweiz.ogd-nbcn/sma/ogd-nbcn_sma_y.csv",
+      "parameter": "ths30xy0",
+      "baseline": 2.6,
+      "observations": {
+        "1961": 2,
+        "2003": 27,
+        "2025": 14
+      }
+    }
+  }
+}

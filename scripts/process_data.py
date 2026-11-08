@@ -26,6 +26,7 @@ import xarray as xr
 from PIL import Image, ImageColor
 from rasterio.crs import CRS
 from rasterio.enums import Resampling
+from rasterio.features import geometry_mask
 from rasterio.transform import from_bounds
 from rasterio.warp import reproject
 
@@ -39,6 +40,8 @@ OUTPUT_HEIGHT = 300
 SAMPLE_WIDTH = 80
 SAMPLE_HEIGHT = 38
 HOT_DAY_PARAMETER = "ths30xy0"
+COUNTRY_BOUNDARY = ROOT / "data/switzerland.geojson"
+_COUNTRY_GEOMETRIES: list[dict[str, Any]] | None = None
 
 
 @dataclass(frozen=True)
@@ -193,6 +196,18 @@ def reproject_grid(path: Path, variable_name: str, bounds: list[list[float]]) ->
         dst_nodata=np.nan,
         resampling=Resampling.bilinear,
     )
+    global _COUNTRY_GEOMETRIES
+    if _COUNTRY_GEOMETRIES is None:
+        boundary = json.loads(COUNTRY_BOUNDARY.read_text(encoding="utf-8"))
+        _COUNTRY_GEOMETRIES = [feature["geometry"] for feature in boundary["features"]]
+    inside_switzerland = geometry_mask(
+        _COUNTRY_GEOMETRIES,
+        out_shape=destination.shape,
+        transform=destination_transform,
+        invert=True,
+        all_touched=True,
+    )
+    destination[~inside_switzerland] = np.nan
     return destination
 
 
@@ -202,6 +217,7 @@ def palette_rgba(
     valid = np.isfinite(values)
     low, high = float(domain[0]), float(domain[1])
     normalized = np.clip((values - low) / (high - low), 0, 1)
+    normalized = np.where(valid, normalized, 0)
     stops = np.linspace(0, 1, len(palette))
     colors = np.asarray([ImageColor.getrgb(color) for color in palette], dtype=float)
     rgba = np.zeros((*values.shape, 4), dtype=np.uint8)

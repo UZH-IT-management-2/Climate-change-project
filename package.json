@@ -1,0 +1,13 @@
+{
+  "name": "swiss-historical-climate-explorer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test && .venv/bin/python -m unittest discover -s tests -p 'test_*.py'",
+    "check": "node scripts/validate_project.mjs",
+    "serve": "python3 -m http.server 8000"
+  },
+  "license": "MIT"
+}
+

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Methodology, data sources, limitations, licensing, and privacy for Swiss Shift.">
+    <title>About — Swiss Historical Climate Explorer</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body class="about-page">
+    <header class="app-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-copy"><strong>Swiss Shift</strong><small data-i18n="brandSubtitle">Historical climate explorer</small></span>
+      </a>
+      <nav class="header-nav" aria-label="Primary navigation">
+        <a href="index.html" data-i18n="mapNav">Map</a>
+        <a class="is-active" href="about.html" data-i18n="aboutNav">About</a>
+        <label class="language-control"><span class="sr-only" data-i18n="languageLabel">Language</span><select id="language-select" aria-label="Language"><option value="en">EN</option><option value="de">DE</option><option value="fr">FR</option><option value="it">IT</option></select></label>
+      </nav>
+    </header>
+    <main class="about-main">
+      <section class="about-hero">
+        <p class="eyebrow" data-i18n="aboutEyebrow">About the explorer</p>
+        <h1 data-i18n="aboutTitle">Making six decades of Swiss climate data visible.</h1>
+        <p class="about-lede" data-i18n="aboutLede">Swiss Shift is a neutral, interactive view of annual climate observations published by MeteoSwiss. It is an independent university project and is not an official federal service.</p>
+        <a class="primary-link" href="index.html"><span data-i18n="openMap">Open the climate map</span> →</a>
+      </section>
+
+      <div class="about-grid">
+        <article class="about-card about-card-wide">
+          <span class="card-number">01</span>
+          <h2 data-i18n="overviewHeading">What you can explore</h2>
+          <p data-i18n="overviewText">The map presents annual mean temperature, precipitation, relative sunshine duration, and hot-day counts. Use the timeline to compare years from 1961 through the latest complete year shared by the datasets.</p>
+        </article>
+        <article class="about-card">
+          <span class="card-number">02</span>
+          <h2 data-i18n="sourcesHeading">Data sources</h2>
+          <p data-i18n="sourcesText">Gridded values come from the MeteoSwiss Open Data spatial climate analyses. Hot-day markers use homogenized annual observations from the Swiss National Basic Climatological Network (NBCN).</p>
+          <p><a href="https://opendatadocs.meteoswiss.ch/c-climate-data/c3-ground-based-climate-data" rel="noreferrer">MeteoSwiss Open Data documentation ↗</a></p>
+        </article>
+        <article class="about-card">
+          <span class="card-number">03</span>
+          <h2 data-i18n="baselineHeading">The 1961–1990 baseline</h2>
+          <p data-i18n="baselineText">For every compatible grid cell or station, the baseline is the arithmetic mean of actual observations from 1961 through 1990. Difference mode subtracts that baseline from the selected year in the original unit.</p>
+          <div class="formula">selected year − 1961–1990 mean</div>
+        </article>
+        <article class="about-card about-card-wide">
+          <span class="card-number">04</span>
+          <h2 data-i18n="methodHeading">Processing method</h2>
+          <p data-i18n="methodText">A reproducible Python pipeline discovers annual files through the official STAC catalogue, reads NetCDF grids, respects Swiss LV95 (EPSG:2056), reprojects them to WGS84, preserves missing values, computes baselines, and exports fixed-scale transparent PNG overlays and lookup grids.</p>
+        </article>
+        <article class="about-card">
+          <span class="card-number">05</span>
+          <h2 data-i18n="limitationsHeading">Limitations and uncertainty</h2>
+          <p data-i18n="limitationsText">Grids are statistical spatial analyses rather than direct measurements at every pixel. Sunshine uses MeteoSwiss’s reconstructed annual series for complete baseline coverage. Homogenized daily-derived indices can carry more uncertainty than monthly observations. Raster popups use a compact sampled lookup grid and are rounded.</p>
+        </article>
+        <article class="about-card">
+          <span class="card-number">06</span>
+          <h2 data-i18n="visualizationHeading">Reading the map</h2>
+          <p data-i18n="visualizationText">Each variable uses one fixed scale across every year, so colors remain comparable through time. In difference mode, the neutral midpoint represents no difference from the historical baseline.</p>
+        </article>
+        <article class="about-card">
+          <span class="card-number">07</span>
+          <h2 data-i18n="licenseHeading">Attribution and licensing</h2>
+          <p><strong>Source: MeteoSwiss</strong></p>
+          <p data-i18n="licenseText">MeteoSwiss Open Data is redistributed with source attribution under its published terms. The base map is © OpenStreetMap contributors. The simplified boundary is from geoBoundaries (CC BY 4.0). Application code is MIT licensed.</p>
+        </article>
+        <article class="about-card">
+          <span class="card-number">08</span>
+          <h2 data-i18n="privacyHeading">Privacy</h2>
+          <p data-i18n="privacyText">No analytics, advertising, cookies, accounts, or personal database are used. On first load, one request to ipwho.is estimates only whether the visitor is in Switzerland so the map can choose an initial view. The application does not store the IP address, and the map still works if the request fails.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="about-footer"><p>Swiss Shift · <span data-i18n="independentNotice">Independent university project</span></p><a href="index.html" data-i18n="backToMap">Back to map</a></footer>
+    <script type="module" src="assets/js/about.js"></script>
+  </body>
+</html>
+

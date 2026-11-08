@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore authentic MeteoSwiss climate observations across Switzerland from 1961 to 2025.">
+    <title>Swiss Historical Climate Explorer</title>
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#map" data-i18n="skipToMap">Skip to map</a>
+    <header class="app-header">
+      <a class="brand" href="index.html" aria-label="Swiss Historical Climate Explorer home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-copy">
+          <strong>Swiss Shift</strong>
+          <small data-i18n="brandSubtitle">Historical climate explorer</small>
+        </span>
+      </a>
+      <nav class="header-nav" aria-label="Primary navigation">
+        <a class="is-active" href="index.html" data-i18n="mapNav">Map</a>
+        <a href="about.html" data-i18n="aboutNav">About</a>
+        <label class="language-control">
+          <span class="sr-only" data-i18n="languageLabel">Language</span>
+          <select id="language-select" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="de">DE</option>
+            <option value="fr">FR</option>
+            <option value="it">IT</option>
+          </select>
+        </label>
+      </nav>
+    </header>
+
+    <main class="explorer-shell">
+      <aside class="sidebar" id="sidebar" aria-label="Climate controls">
+        <div class="sidebar-scroll">
+          <section class="sidebar-intro">
+            <p class="eyebrow" data-i18n="exploreEyebrow">Explore the record</p>
+            <h1 data-i18n="exploreTitle">How has Switzerland’s climate changed?</h1>
+            <p data-i18n="exploreDescription">Choose a climate indicator and move through more than six decades of official observations.</p>
+          </section>
+
+          <section class="control-section" aria-labelledby="variable-heading">
+            <div class="section-heading">
+              <h2 id="variable-heading" data-i18n="indicatorHeading">Climate indicator</h2>
+              <span class="step-number">01</span>
+            </div>
+            <div class="variable-list" role="radiogroup" aria-label="Climate indicator">
+              <button class="variable-card is-active" type="button" data-variable="temperature" role="radio" aria-checked="true">
+                <span class="variable-icon temperature-icon" aria-hidden="true">°</span>
+                <span><strong data-i18n="temperatureName">Mean temperature</strong><small data-i18n="temperatureHint">Annual average</small></span>
+                <span class="radio-dot" aria-hidden="true"></span>
+              </button>
+              <button class="variable-card" type="button" data-variable="precipitation" role="radio" aria-checked="false">
+                <span class="variable-icon" aria-hidden="true">⌁</span>
+                <span><strong data-i18n="precipitationName">Precipitation</strong><small data-i18n="precipitationHint">Annual total</small></span>
+                <span class="radio-dot" aria-hidden="true"></span>
+              </button>
+              <button class="variable-card" type="button" data-variable="sunshine" role="radio" aria-checked="false">
+                <span class="variable-icon" aria-hidden="true">☼</span>
+                <span><strong data-i18n="sunshineName">Sunshine</strong><small data-i18n="sunshineHint">Relative duration</small></span>
+                <span class="radio-dot" aria-hidden="true"></span>
+              </button>
+              <button class="variable-card" type="button" data-variable="hotDays" role="radio" aria-checked="false">
+                <span class="variable-icon" aria-hidden="true">↑</span>
+                <span><strong data-i18n="hotDaysName">Hot days</strong><small data-i18n="hotDaysHint">Days at or above 30 °C</small></span>
+                <span class="radio-dot" aria-hidden="true"></span>
+              </button>
+            </div>
+          </section>
+
+          <section class="control-section" aria-labelledby="view-heading">
+            <div class="section-heading">
+              <h2 id="view-heading" data-i18n="viewHeading">Comparison</h2>
+              <span class="step-number">02</span>
+            </div>
+            <div class="segmented-control" role="radiogroup" aria-label="Value mode">
+              <button class="is-active" type="button" data-mode="absolute" role="radio" aria-checked="true" data-i18n="absoluteMode">Absolute</button>
+              <button type="button" data-mode="anomaly" role="radio" aria-checked="false" data-i18n="anomalyMode">Difference</button>
+            </div>
+            <p class="mode-explanation" id="mode-explanation" data-i18n="absoluteExplanation">Observed value in the selected year.</p>
+          </section>
+
+          <section class="legend-panel" aria-labelledby="legend-title">
+            <div class="legend-title-row">
+              <div>
+                <p class="eyebrow" data-i18n="legendEyebrow">Map key</p>
+                <h2 id="legend-title">Mean temperature</h2>
+              </div>
+              <strong id="legend-unit">°C</strong>
+            </div>
+            <div class="legend-gradient" id="legend-gradient" aria-hidden="true"></div>
+            <div class="legend-labels" id="legend-labels"></div>
+            <p class="legend-note" id="legend-note"></p>
+          </section>
+
+          <section class="source-panel">
+            <span class="source-badge" aria-hidden="true">M</span>
+            <div><strong data-i18n="sourceLabel">Data source</strong><p>Source: MeteoSwiss</p></div>
+          </section>
+        </div>
+      </aside>
+
+      <section class="map-stage" aria-label="Interactive climate map">
+        <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="true" data-i18n-aria="toggleControlsLabel">☰</button>
+        <div id="map" tabindex="0" aria-label="Map of Switzerland"></div>
+        <div class="map-title-card" aria-live="polite">
+          <span id="active-variable-label">Mean temperature</span>
+          <strong id="map-year">1961</strong>
+          <small id="active-mode-label">Absolute value</small>
+        </div>
+        <div class="loading-pill" id="loading-pill" role="status" aria-live="polite" hidden>
+          <span></span><span data-i18n="loadingData">Loading climate layer…</span>
+        </div>
+        <div class="map-message" id="map-message" role="status" hidden></div>
+
+        <section class="timeline-panel" aria-labelledby="timeline-title">
+          <button class="play-button" id="play-button" type="button" aria-label="Play timeline">
+            <span id="play-icon" aria-hidden="true">▶</span>
+            <span id="play-label" data-i18n="play">Play</span>
+          </button>
+          <div class="timeline-main">
+            <div class="timeline-heading">
+              <div><span class="eyebrow" data-i18n="timelineEyebrow">Historical timeline</span><h2 id="timeline-title" data-i18n="timelineTitle">Explore year by year</h2></div>
+              <output id="year-output" for="year-range">1961</output>
+            </div>
+            <input id="year-range" type="range" min="0" max="64" step="1" value="0" aria-label="Year">
+            <div class="range-labels"><span id="first-year">1961</span><span id="last-year">2025</span></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <noscript>This application requires JavaScript to render the interactive map.</noscript>
+    <script src="vendor/leaflet/leaflet.js"></script>
+    <script type="module" src="assets/js/app.js"></script>
+  </body>
+</html>
+

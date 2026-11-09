@@ -26,6 +26,6 @@ Statuses describe the repository at delivery time.
 | DOC-1 | Setup/refresh/deploy docs | README and docs set | Link/file validation | PASS |
 | DOC-2 | AI disclosure | `docs/AI_USAGE.md` | File inspection | PASS |
 | SCRUM-1 | Two sprint records | Backlog and two factual reviews | File inspection | PASS |
-| DEPLOY-1 | GitHub Pages ready | Actions workflow and relative paths | Local HTTP checks; public workflow pending | PASS (configuration) |
+| DEPLOY-1 | GitHub Pages ready | Actions workflow and relative paths | Public workflow passed; HTML, manifest, and raster returned HTTP 200 | PASS |
 | DESIGN-1 | Figma visual direction | Red header, 326 px rail, map, timeline, About | Embedded preview comparison; Chrome and Safari QA | PASS with access limitation |
 

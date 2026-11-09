@@ -12,6 +12,6 @@
 9. Open **About** and show methodology, limitations, attribution, and privacy.
 10. End with the architecture: offline Python processing plus a static HTML/CSS/JS site.
 
-Do not present snow, monthly views, Firefox/Edge checks, public deployment,
-or client acceptance unless they have subsequently been completed and verified.
+Do not present snow, monthly views, Firefox/Edge checks, or client acceptance
+unless they have subsequently been completed and verified.
 

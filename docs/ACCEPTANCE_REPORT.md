@@ -1,6 +1,6 @@
 # Acceptance report
 
-Generated from actual automated and manual checks on 8 November 2026.
+Generated from actual automated and manual checks completed through 9 November 2026.
 
 ## Summary
 
@@ -13,7 +13,7 @@ Generated from actual automated and manual checks on 8 November 2026.
 | Baseline math | PASS | Node and Python tests |
 | Languages | PASS | Four equal locale sets; German live-switch QA |
 | Privacy | PASS | No analytics/cookies/storage; disclosures present |
-| Public deployment | NOT TESTED | Workflow prepared; public run pending push/action |
+| Public deployment | PASS | GitHub Pages workflow succeeded; public HTML, manifest, and raster returned HTTP 200 |
 | Cross-browser | PARTIAL | Chrome and Safari passed; Firefox/Edge not claimed |
 | Client acceptance | NOT TESTED | No client review or sign-off supplied |
 
@@ -81,5 +81,9 @@ Source URLs and machine-readable values are in `docs/data_validation.json`.
 npm test       → 6 Node tests passed; 2 Python tests passed
 npm run check  → 4 variables validated through 2025
 curl -I local  → HTML, manifest, and overlay returned HTTP 200
+GitHub Actions → test and Pages deployment jobs passed
+curl public    → HTML, manifest, and overlay returned HTTP 200
 ```
+
+Public URL: `https://uzh-it-management-2.github.io/Climate-change-project/`
 

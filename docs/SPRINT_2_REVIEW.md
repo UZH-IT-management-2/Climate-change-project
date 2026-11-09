@@ -18,6 +18,8 @@ translations, visual refinement, acceptance evidence, and deployment readiness.
 - Added automated data, baseline, asset, locale, privacy, and palette tests.
 - Completed local Chrome browser QA for the primary demonstration path and a
   Safari rendering/control smoke test.
+- Deployed the tested repository to GitHub Pages and verified the public HTML,
+  manifest, and a representative raster over HTTPS.
 
 ## Browser demonstration evidence
 
@@ -34,7 +36,6 @@ The local Chrome check verified:
 
 ## Outstanding limitations
 
-- Public GitHub Pages deployment remains pending until the workflow runs.
 - Firefox and Edge are not claimed as tested.
 - Monthly and snow views remain optional future backlog items.
 - Client review/sign-off remains pending.

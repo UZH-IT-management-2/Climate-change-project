@@ -144,12 +144,12 @@ The workflow at `.github/workflows/pages.yml` tests and deploys the repository
 root when `main` is pushed. In the GitHub repository settings, set **Pages →
 Build and deployment → Source** to **GitHub Actions** if it is not already set.
 
-The expected project URL is:
+The deployed project URL is:
 
 `https://uzh-it-management-2.github.io/Climate-change-project/`
 
-Do not call a deployment complete until the workflow succeeds and the public
-URL has been opened and checked.
+The GitHub Actions test and deployment jobs pass, and the public homepage,
+manifest, and representative raster asset have been checked over HTTPS.
 
 ## Configuration
 

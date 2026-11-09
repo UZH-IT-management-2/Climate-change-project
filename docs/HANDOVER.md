@@ -12,12 +12,13 @@ inspection, four languages, About/privacy content, and local scientific assets.
 All automated data, asset, baseline, locale, privacy, and palette checks pass.
 The primary experience was manually exercised in current Chrome on a local HTTP
 server, with a rendering and control smoke test in Safari. The public Pages URL,
-Firefox, and Edge are not claimed as tested.
+manifest, and representative climate overlay return HTTP 200. Firefox and Edge
+are not claimed as tested.
 
 ## Deployment
 
-`.github/workflows/pages.yml` is ready to test and deploy on pushes to `main`.
-GitHub Pages must use GitHub Actions as its source. The expected URL is
+`.github/workflows/pages.yml` tests and deploys pushes to `main`. GitHub Pages is
+enabled with GitHub Actions as its source. The live URL is
 `https://uzh-it-management-2.github.io/Climate-change-project/`.
 
 ## Deviations and limitations
@@ -31,9 +32,8 @@ GitHub Pages must use GitHub Actions as its source. The expected URL is
 
 ## Recommended next work
 
-1. Verify the Pages action and public URL after push.
-2. Run Firefox and Edge smoke tests.
-3. Obtain client review and record actual feedback.
-4. Consider monthly data only after confirming repository-size and UX impact.
-5. Re-run `scripts/process_data.py` each year after the consolidated archive updates.
+1. Run Firefox and Edge smoke tests.
+2. Obtain client review and record actual feedback.
+3. Consider monthly data only after confirming repository-size and UX impact.
+4. Re-run `scripts/process_data.py` each year after the consolidated archive updates.
 

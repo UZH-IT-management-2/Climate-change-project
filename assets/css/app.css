@@ -137,6 +137,37 @@ a { color: inherit; }
 .about-lede { max-width: 690px; margin: 24px 0 28px; color: var(--muted); font-size: 17px; line-height: 1.65; }
 .primary-link { display: inline-flex; gap: 30px; align-items: center; background: var(--red); color: white; padding: 13px 17px; border-radius: 3px; text-decoration: none; font-size: 12px; font-weight: 750; }
 .primary-link:hover { background: var(--red-dark); }
+.learning-section { margin-bottom: 64px; }
+.learning-header { display: grid; grid-template-columns: minmax(0, .95fr) minmax(320px, 1fr); gap: 70px; align-items: end; padding: 33px 0 26px; border-top: 3px solid var(--red); }
+.learning-header h2 { max-width: 550px; margin: 0; color: var(--navy); font-size: clamp(28px, 3.5vw, 42px); line-height: 1.06; letter-spacing: -.035em; }
+.learning-header > p { margin: 0 0 2px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.learning-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #d8dde1; border: 1px solid #d8dde1; }
+.learning-card { min-width: 0; padding: 30px 32px 32px; background: white; }
+.learning-card-wide { grid-column: span 2; }
+.learning-index { display: inline-grid; place-items: center; width: 34px; height: 34px; border: 1px solid #e4b3ae; border-radius: 50%; color: var(--red); font-size: 9px; font-weight: 800; letter-spacing: .08em; }
+.learning-kicker { margin: 21px 0 7px; color: var(--red); font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.learning-card h3 { margin: 0 0 13px; color: var(--navy); font-size: 22px; letter-spacing: -.02em; }
+.learning-card > p:not(.learning-kicker, .learning-source) { max-width: 760px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.68; }
+.learning-note { margin-top: 20px !important; padding: 12px 14px; border-left: 3px solid var(--red); background: #fff8f7; color: var(--navy) !important; font-weight: 650; }
+.learning-list { display: grid; gap: 10px; margin: 18px 0 20px; padding: 0; list-style: none; }
+.learning-list li { position: relative; padding-left: 20px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.learning-list li::before { content: ""; position: absolute; top: .55em; left: 1px; width: 6px; height: 6px; background: var(--red); border-radius: 50%; }
+.learning-source { margin: 0; color: var(--muted); font-size: 11px; }
+.learning-source a { color: var(--blue); font-weight: 700; }
+.inquiry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 24px 0 0; padding: 1px; background: var(--line); list-style: none; }
+.inquiry-grid li { min-width: 0; padding: 22px; background: var(--soft); }
+.inquiry-grid li > span { display: block; margin-bottom: 25px; color: #9aa5ae; font-size: 9px; font-weight: 800; letter-spacing: .15em; }
+.inquiry-grid strong { display: block; color: var(--navy); font-size: 14px; }
+.inquiry-grid p { margin: 9px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.resource-card { background: var(--navy); }
+.resource-card .learning-index { border-color: rgb(255 255 255 / 32%); color: white; }
+.resource-card .learning-kicker { color: #f2a49e; }
+.resource-card h3 { color: white; }
+.resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 23px; }
+.resource-grid a { min-width: 0; padding: 18px; border: 1px solid rgb(255 255 255 / 20%); color: white; text-decoration: none; transition: background-color .15s ease, border-color .15s ease; }
+.resource-grid a:hover { border-color: rgb(255 255 255 / 55%); background: rgb(255 255 255 / 7%); }
+.resource-grid strong { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; }
+.resource-grid a > span { display: block; margin-top: 9px; color: rgb(255 255 255 / 68%); font-size: 11px; line-height: 1.55; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #d8dde1; border: 1px solid #d8dde1; }
 .about-card { min-height: 250px; background: white; padding: 32px; }
 .about-card-wide { grid-column: span 2; min-height: 210px; }
@@ -168,6 +199,12 @@ a { color: inherit; }
   .timeline-panel { grid-template-columns: 68px 1fr; min-height: 94px; }
   .timeline-main { padding: 12px; }
   .about-main { padding: 45px 18px 60px; }
+  .learning-section { margin-bottom: 45px; }
+  .learning-header { grid-template-columns: 1fr; gap: 20px; padding-top: 27px; }
+  .learning-header > p { max-width: 620px; }
+  .learning-grid { grid-template-columns: 1fr; }
+  .learning-card-wide { grid-column: span 1; }
+  .inquiry-grid, .resource-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .about-card-wide { grid-column: span 1; }
 }

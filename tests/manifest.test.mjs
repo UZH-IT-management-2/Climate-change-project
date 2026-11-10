@@ -81,6 +81,16 @@ test("all four locales have the same complete key set", async () => {
   const reference = Object.keys(locales[0]).sort();
   for (const locale of locales.slice(1)) assert.deepEqual(Object.keys(locale).sort(), reference);
   assert.ok(reference.length > 50);
+  for (const key of ["whyHeading", "heatHeading", "mapLearningHeading", "readingHeading"]) assert.ok(reference.includes(key));
+});
+
+test("about page includes the educational climate section and trusted Swiss resources", async () => {
+  const source = await readFile(path.join(root, "about.html"), "utf8");
+  assert.match(source, /class="learning-section"/);
+  assert.match(source, /data-i18n="heatTipHydrate"/);
+  assert.match(source, /https:\/\/www\.meteoswiss\.admin\.ch/);
+  assert.match(source, /https:\/\/www\.bag\.admin\.ch\/en\/heat/);
+  assert.match(source, /https:\/\/www\.nccs\.admin\.ch\/nccs\/en\/home\.html/);
 });
 
 test("frontend is framework-free and contains no analytics or cookie code", async () => {
